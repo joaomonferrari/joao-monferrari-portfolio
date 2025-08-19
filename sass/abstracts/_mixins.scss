@@ -1,0 +1,43 @@
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Celular
+600 - 900px:    Tablet (retrato)
+900 - 1200px:   Tablet (paisagem)
+[1200 - 1800] é onde nossos estilos “normais” se aplicam
+1800px + :      Desktop grande
+
+Opções do parâmetro $breakpoint:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+Dentro de media queries, 1em = 16px em qualquer tamanho de tela (somente dentro das media queries).
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800
+  }
+}
+
+@mixin secondaryFont {
+  font-family: 'Overpass', sans-serif;
+}
